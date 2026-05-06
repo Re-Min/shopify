@@ -1,0 +1,42 @@
+{
+  "name": "t:sections.footer.name",
+  "type": "footer",
+  "sections": {
+    "prepflora_footer": {
+      "type": "prepflora-footer",
+      "blocks": {
+        "footer_menu_1": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Shop",
+            "menu": "footer"
+          }
+        },
+        "footer_menu_2": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Learn",
+            "menu": "footer"
+          }
+        }
+      },
+      "block_order": [
+        "footer_menu_1",
+        "footer_menu_2"
+      ],
+      "settings": {
+        "footer_text": "Science-backed gut health solutions for bottoms who prep safely, recover quickly, and live confidently.",
+        "show_social": true,
+        "show_newsletter": true,
+        "newsletter_heading": "Sign Up & Save 15%",
+        "newsletter_text": "Get gut health tips and exclusive offers",
+        "show_payment_icons": true,
+        "padding_top": 60,
+        "padding_bottom": 40
+      }
+    }
+  },
+  "order": [
+    "prepflora_footer"
+  ]
+}

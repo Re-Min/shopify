@@ -1,0 +1,40 @@
+{% comment %}
+  PrepFlora Hero Content Snippet
+  Renders the text content side of the hero
+{% endcomment %}
+
+<div class="hero__content">
+  {%- if section.settings.heading != blank -%}
+    <h1 class="hero__heading display">
+      {{ section.settings.heading }}
+    </h1>
+  {%- endif -%}
+
+  {%- if section.settings.subheading != blank -%}
+    <div class="hero__subheading body-large">
+      {{ section.settings.subheading }}
+    </div>
+  {%- endif -%}
+
+  {%- if section.settings.button_primary_text != blank or section.settings.button_secondary_text != blank -%}
+    <div class="hero__buttons">
+      {%- if section.settings.button_primary_text != blank -%}
+        <a
+          href="{{ section.settings.button_primary_link }}"
+          class="btn btn--primary"
+        >
+          {{ section.settings.button_primary_text }}
+        </a>
+      {%- endif -%}
+
+      {%- if section.settings.button_secondary_text != blank -%}
+        <a
+          href="{{ section.settings.button_secondary_link }}"
+          class="btn btn--secondary"
+        >
+          {{ section.settings.button_secondary_text }}
+        </a>
+      {%- endif -%}
+    </div>
+  {%- endif -%}
+</div>

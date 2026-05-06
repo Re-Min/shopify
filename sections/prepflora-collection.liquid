@@ -1,0 +1,144 @@
+{{ 'section-prepflora-collection.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .prepflora-collection {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+{%- endstyle -%}
+
+<section class="prepflora-collection" data-section-id="{{ section.id }}">
+  <div class="container">
+
+    {%- if section.settings.title != blank -%}
+      <div class="collection__header">
+        <h1 class="collection__title">{{ section.settings.title }}</h1>
+        {%- if section.settings.description != blank -%}
+          <p class="collection__description">{{ section.settings.description }}</p>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    {%- paginate collection.products by section.settings.products_per_page -%}
+
+      <div class="collection-grid">
+        {%- for product in collection.products -%}
+          <div class="product-card-wrapper">
+            <div class="product-card">
+
+              <a href="{{ product.url }}" class="product-card__link">
+                <div class="product-card__image-wrapper">
+                  {%- if product.featured_image -%}
+                    <img
+                      srcset="
+                        {%- if product.featured_image.width >= 375 -%}{{ product.featured_image | image_url: width: 375 }} 375w,{%- endif -%}
+                        {%- if product.featured_image.width >= 550 -%}{{ product.featured_image | image_url: width: 550 }} 550w,{%- endif -%}
+                        {{ product.featured_image | image_url }} {{ product.featured_image.width }}w
+                      "
+                      src="{{ product.featured_image | image_url: width: 550 }}"
+                      alt="{{ product.featured_image.alt | escape }}"
+                      loading="lazy"
+                      class="product-card__image"
+                    >
+                  {%- else -%}
+                    {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
+                  {%- endif -%}
+
+                  {%- if product.tags contains 'bestseller' -%}
+                    <span class="product-card__badge badge badge--bestseller">Best Seller</span>
+                  {%- elsif product.tags contains 'new' -%}
+                    <span class="product-card__badge badge badge--new">New</span>
+                  {%- endif -%}
+                </div>
+
+                <div class="product-card__content">
+                  <h3 class="product-card__title">{{ product.title }}</h3>
+
+                  <div class="product-card__price-wrapper">
+                    <span class="product-card__price">{{ product.price | money }}</span>
+                    {%- if product.compare_at_price > product.price -%}
+                      <span class="product-card__compare-price">{{ product.compare_at_price | money }}</span>
+                    {%- endif -%}
+                  </div>
+
+                  <button type="button" class="btn btn--primary btn--full product-card__quick-add">
+                    ADD TO CART
+                  </button>
+                </div>
+              </a>
+
+            </div>
+          </div>
+        {%- endfor -%}
+      </div>
+
+      {%- if paginate.pages > 1 -%}
+        <div class="collection__pagination">
+          {%- if paginate.previous -%}
+            <a href="{{ paginate.previous.url }}" class="btn btn--secondary">Previous</a>
+          {%- endif -%}
+
+          <span class="pagination__text">Page {{ paginate.current_page }} of {{ paginate.pages }}</span>
+
+          {%- if paginate.next -%}
+            <a href="{{ paginate.next.url }}" class="btn btn--secondary">Next</a>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+
+    {%- endpaginate -%}
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "PrepFlora Collection",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "All Products"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description"
+    },
+    {
+      "type": "range",
+      "id": "products_per_page",
+      "min": 6,
+      "max": 24,
+      "step": 3,
+      "default": 12,
+      "label": "Products per page"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 60
+    }
+  ]
+}
+{% endschema %}

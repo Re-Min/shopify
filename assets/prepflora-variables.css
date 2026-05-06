@@ -1,0 +1,244 @@
+/* ============================================
+   PrepFlora Design System - CSS Variables
+   Version 1.0 | Shopify Optimized
+   ============================================ */
+
+:root {
+  /* ==================== Colors ==================== */
+
+  /* Primary Colors */
+  --color-navy-deep: #1B3B36;
+  --color-navy-deep-rgb: 27, 59, 54;
+  --color-sage-soft: #A8B5A8;
+  --color-sage-soft-rgb: 168, 181, 168;
+  --color-terracotta-warm: #D4A59A;
+  --color-terracotta-warm-rgb: 212, 165, 154;
+
+  /* Surface & Background */
+  --color-cream-canvas: #F9F8F6;
+  --color-cream-canvas-rgb: 249, 248, 246;
+  --color-white: #FFFFFF;
+  --color-white-rgb: 255, 255, 255;
+  --color-navy-lightest: #F0F2F2;
+  --color-navy-lightest-rgb: 240, 242, 242;
+
+  /* Text Colors */
+  --color-text-primary: #4A4A4A;
+  --color-text-primary-rgb: 74, 74, 74;
+  --color-text-heading: var(--color-navy-deep);
+  --color-text-heading-rgb: var(--color-navy-deep-rgb);
+  --color-text-secondary: rgba(27, 59, 54, 0.70);
+  --color-text-white: #FFFFFF;
+  --color-text-white-rgb: 255, 255, 255;
+  --color-text-white-soft: rgba(255, 255, 255, 0.75);
+
+  /* Semantic Colors */
+  --color-success: #4A7C59;
+  --color-success-rgb: 74, 124, 89;
+  --color-error: #C84B31;
+  --color-error-rgb: 200, 75, 49;
+  --color-warning: #E8A87C;
+  --color-warning-rgb: 232, 168, 124;
+
+  /* Alpha Overlays */
+  --overlay-dark: rgba(27, 59, 54, 0.85);
+  --overlay-light: rgba(255, 255, 255, 0.95);
+
+  /* ==================== Typography ==================== */
+
+  /* Font Family */
+  --font-family-primary: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  /* Font Sizes */
+  --font-size-display: 3rem;        /* 48px */
+  --font-size-h1: 2.25rem;          /* 36px */
+  --font-size-h2: 1.75rem;          /* 28px */
+  --font-size-h3: 1.25rem;          /* 20px */
+  --font-size-body-lg: 1.125rem;    /* 18px */
+  --font-size-body: 1rem;           /* 16px */
+  --font-size-body-sm: 0.875rem;    /* 14px */
+  --font-size-caption: 0.8125rem;   /* 13px */
+
+  /* Font Weights */
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* Line Heights */
+  --line-height-tight: 1.2;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.6;
+
+  /* Letter Spacing */
+  --letter-spacing-tight: -0.02em;
+  --letter-spacing-tighter: -0.01em;
+  --letter-spacing-normal: 0;
+  --letter-spacing-wide: 0.05em;
+
+  /* ==================== Spacing ==================== */
+
+  --space-xs: 0.5rem;    /* 8px */
+  --space-sm: 1rem;      /* 16px */
+  --space-md: 1.5rem;    /* 24px */
+  --space-lg: 2rem;      /* 32px */
+  --space-xl: 2.5rem;    /* 40px */
+  --space-2xl: 3.75rem;  /* 60px */
+  --space-3xl: 5rem;     /* 80px */
+  --space-4xl: 7.5rem;   /* 120px */
+
+  /* Section Padding */
+  --section-padding-vertical: 5rem;           /* 80px desktop */
+  --section-padding-vertical-mobile: 3.75rem; /* 60px mobile */
+  --section-padding-horizontal: 2.5rem;       /* 40px desktop */
+  --section-padding-horizontal-mobile: 1.25rem; /* 20px mobile */
+
+  /* Container */
+  --container-max-width: 80rem;     /* 1280px */
+  --container-padding: 2.5rem;      /* 40px */
+  --container-padding-mobile: 1.25rem; /* 20px */
+
+  /* Grid Gap */
+  --grid-gap: 2rem;          /* 32px desktop */
+  --grid-gap-mobile: 1.25rem; /* 20px mobile */
+
+  /* ==================== Border Radius ==================== */
+
+  --radius-sm: 0.5rem;   /* 8px - inputs */
+  --radius-md: 0.75rem;  /* 12px - cards */
+  --radius-lg: 2rem;     /* 32px - buttons */
+  --radius-full: 50%;    /* circular */
+
+  /* ==================== Shadows ==================== */
+
+  /* Card Shadows */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08), 0 2px 6px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.16), 0 4px 8px rgba(0, 0, 0, 0.08);
+
+  /* Header Shadow */
+  --shadow-header: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+
+  /* Modal Shadow */
+  --shadow-modal: 0 16px 48px rgba(0, 0, 0, 0.24), 0 8px 16px rgba(0, 0, 0, 0.12);
+
+  /* ==================== Buttons ==================== */
+
+  --button-padding-vertical: 0.875rem;   /* 14px */
+  --button-padding-horizontal: 2rem;     /* 32px */
+  --button-padding-vertical-mobile: 0.75rem; /* 12px */
+  --button-padding-horizontal-mobile: 1.75rem; /* 28px */
+  --button-min-height: 3rem;             /* 48px - touch friendly */
+  --button-border-radius: var(--radius-lg);
+  --button-font-size: var(--font-size-body-sm);
+  --button-font-weight: var(--font-weight-semibold);
+  --button-letter-spacing: var(--letter-spacing-wide);
+  --button-transition: all 0.2s ease;
+
+  /* ==================== Forms ==================== */
+
+  --input-padding-vertical: 0.875rem;    /* 14px */
+  --input-padding-horizontal: 1rem;      /* 16px */
+  --input-border-radius: var(--radius-sm);
+  --input-border-width: 1px;
+  --input-border-color: transparent;
+  --input-border-color-focus: var(--color-navy-deep);
+  --input-border-color-error: var(--color-error);
+  --input-background: var(--color-navy-lightest);
+  --input-background-focus: var(--color-white);
+  --input-font-size: var(--font-size-body);
+  --input-transition: all 0.2s ease;
+
+  /* ==================== Cards ==================== */
+
+  --card-padding: 2rem;                  /* 32px desktop */
+  --card-padding-mobile: 1.5rem;         /* 24px mobile */
+  --card-border-radius: var(--radius-md);
+  --card-background: var(--color-white);
+  --card-shadow: var(--shadow-sm);
+  --card-shadow-hover: var(--shadow-md);
+  --card-transition: box-shadow 0.3s ease, transform 0.3s ease;
+
+  /* ==================== Header ==================== */
+
+  --header-height: 5rem;         /* 80px desktop */
+  --header-height-mobile: 4rem;  /* 64px mobile */
+  --header-background: var(--color-white);
+  --header-shadow: var(--shadow-header);
+  --header-z-index: 1000;
+
+  /* ==================== Z-Index Scale ==================== */
+
+  --z-index-dropdown: 100;
+  --z-index-sticky: 500;
+  --z-index-header: 1000;
+  --z-index-drawer: 2000;
+  --z-index-modal: 3000;
+  --z-index-toast: 4000;
+
+  /* ==================== Transitions ==================== */
+
+  --transition-fast: 0.15s ease;
+  --transition-base: 0.2s ease;
+  --transition-slow: 0.3s ease;
+  --transition-slower: 0.4s ease;
+
+  /* ==================== Breakpoints (for reference in JS) ==================== */
+
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+}
+
+/* ==================== Mobile Overrides ==================== */
+
+@media screen and (max-width: 768px) {
+  :root {
+    --font-size-display: 2.25rem;  /* 36px on mobile */
+    --font-size-h1: 1.875rem;      /* 30px on mobile */
+    --font-size-h2: 1.5rem;        /* 24px on mobile */
+  }
+}
+
+/* ==================== Body Background ==================== */
+
+body {
+  background-color: var(--color-cream-canvas);
+  color: var(--color-text-primary);
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-relaxed);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ==================== Utility Classes ==================== */
+
+.bg-cream {
+  background-color: var(--color-cream-canvas);
+}
+
+.bg-white {
+  background-color: var(--color-white);
+}
+
+.bg-navy {
+  background-color: var(--color-navy-deep);
+}
+
+.text-navy {
+  color: var(--color-navy-deep);
+}
+
+.text-sage {
+  color: var(--color-sage-soft);
+}
+
+.text-white {
+  color: var(--color-white);
+}
+
+.text-charcoal {
+  color: var(--color-text-primary);
+}

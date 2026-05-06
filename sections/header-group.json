@@ -1,0 +1,18 @@
+{
+  "name": "t:sections.header.name",
+  "type": "header",
+  "sections": {
+    "prepflora_header": {
+      "type": "prepflora-header",
+      "settings": {
+        "logo_width": 140,
+        "menu": "main-menu",
+        "padding_top": 20,
+        "padding_bottom": 20
+      }
+    }
+  },
+  "order": [
+    "prepflora_header"
+  ]
+}

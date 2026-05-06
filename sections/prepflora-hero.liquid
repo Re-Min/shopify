@@ -1,0 +1,285 @@
+{{ 'section-prepflora-hero.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  #PrepFloraHero-{{ section.id }} {
+    margin-top: {{ section.settings.margin_top }}px;
+    margin-bottom: {{ section.settings.margin_bottom }}px;
+  }
+
+  #PrepFloraHero-{{ section.id }} .hero__content {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+{%- endstyle -%}
+
+<section id="PrepFloraHero-{{ section.id }}" class="prepflora-hero {% if section.settings.full_width %}prepflora-hero--full-width{% endif %}">
+  <div class="{% unless section.settings.full_width %}container{% endunless %}">
+    <div class="prepflora-hero__wrapper">
+
+      {%- if section.settings.layout == 'image_left' -%}
+        <div class="hero__image-wrapper">
+          {%- if section.settings.image != blank -%}
+            <img
+              srcset="
+                {%- if section.settings.image.width >= 375 -%}{{ section.settings.image | image_url: width: 375 }} 375w,{%- endif -%}
+                {%- if section.settings.image.width >= 750 -%}{{ section.settings.image | image_url: width: 750 }} 750w,{%- endif -%}
+                {%- if section.settings.image.width >= 1100 -%}{{ section.settings.image | image_url: width: 1100 }} 1100w,{%- endif -%}
+                {%- if section.settings.image.width >= 1500 -%}{{ section.settings.image | image_url: width: 1500 }} 1500w,{%- endif -%}
+                {{ section.settings.image | image_url }} {{ section.settings.image.width }}w
+              "
+              src="{{ section.settings.image | image_url: width: 1500 }}"
+              loading="lazy"
+              alt="{{ section.settings.image.alt | escape }}"
+              width="{{ section.settings.image.width }}"
+              height="{{ section.settings.image.height }}"
+              class="hero__image"
+              style="object-position: {{ section.settings.image_position }};"
+            >
+          {%- else -%}
+            <div class="hero__image-placeholder">
+              {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg' }}
+            </div>
+          {%- endif -%}
+        </div>
+
+        <div class="hero__content">
+          {%- if section.settings.heading != blank -%}
+            <h1 class="hero__heading display">
+              {{ section.settings.heading }}
+            </h1>
+          {%- endif -%}
+
+          {%- if section.settings.subheading != blank -%}
+            <div class="hero__subheading body-large">
+              {{ section.settings.subheading }}
+            </div>
+          {%- endif -%}
+
+          {%- if section.settings.button_primary_text != blank or section.settings.button_secondary_text != blank -%}
+            <div class="hero__buttons">
+              {%- if section.settings.button_primary_text != blank -%}
+                <a href="{{ section.settings.button_primary_link }}" class="btn btn--primary">
+                  {{ section.settings.button_primary_text }}
+                </a>
+              {%- endif -%}
+
+              {%- if section.settings.button_secondary_text != blank -%}
+                <a href="{{ section.settings.button_secondary_link }}" class="btn btn--secondary">
+                  {{ section.settings.button_secondary_text }}
+                </a>
+              {%- endif -%}
+            </div>
+          {%- endif -%}
+        </div>
+      {%- else -%}
+        <div class="hero__content">
+          {%- if section.settings.heading != blank -%}
+            <h1 class="hero__heading display">
+              {{ section.settings.heading }}
+            </h1>
+          {%- endif -%}
+
+          {%- if section.settings.subheading != blank -%}
+            <div class="hero__subheading body-large">
+              {{ section.settings.subheading }}
+            </div>
+          {%- endif -%}
+
+          {%- if section.settings.button_primary_text != blank or section.settings.button_secondary_text != blank -%}
+            <div class="hero__buttons">
+              {%- if section.settings.button_primary_text != blank -%}
+                <a href="{{ section.settings.button_primary_link }}" class="btn btn--primary">
+                  {{ section.settings.button_primary_text }}
+                </a>
+              {%- endif -%}
+
+              {%- if section.settings.button_secondary_text != blank -%}
+                <a href="{{ section.settings.button_secondary_link }}" class="btn btn--secondary">
+                  {{ section.settings.button_secondary_text }}
+                </a>
+              {%- endif -%}
+            </div>
+          {%- endif -%}
+        </div>
+
+        <div class="hero__image-wrapper">
+          {%- if section.settings.image != blank -%}
+            <img
+              srcset="
+                {%- if section.settings.image.width >= 375 -%}{{ section.settings.image | image_url: width: 375 }} 375w,{%- endif -%}
+                {%- if section.settings.image.width >= 750 -%}{{ section.settings.image | image_url: width: 750 }} 750w,{%- endif -%}
+                {%- if section.settings.image.width >= 1100 -%}{{ section.settings.image | image_url: width: 1100 }} 1100w,{%- endif -%}
+                {%- if section.settings.image.width >= 1500 -%}{{ section.settings.image | image_url: width: 1500 }} 1500w,{%- endif -%}
+                {{ section.settings.image | image_url }} {{ section.settings.image.width }}w
+              "
+              src="{{ section.settings.image | image_url: width: 1500 }}"
+              loading="lazy"
+              alt="{{ section.settings.image.alt | escape }}"
+              width="{{ section.settings.image.width }}"
+              height="{{ section.settings.image.height }}"
+              class="hero__image"
+              style="object-position: {{ section.settings.image_position }};"
+            >
+          {%- else -%}
+            <div class="hero__image-placeholder">
+              {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg' }}
+            </div>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "PrepFlora Hero",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Confidence from the inside out"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Science-backed gut health solutions for bottoms who prep safely, recover quickly, and live confidently."
+    },
+    {
+      "type": "text",
+      "id": "button_primary_text",
+      "label": "Primary Button Text",
+      "default": "SHOP THE ROUTINE"
+    },
+    {
+      "type": "url",
+      "id": "button_primary_link",
+      "label": "Primary Button Link"
+    },
+    {
+      "type": "text",
+      "id": "button_secondary_text",
+      "label": "Secondary Button Text",
+      "default": "READ THE JOURNAL"
+    },
+    {
+      "type": "url",
+      "id": "button_secondary_link",
+      "label": "Secondary Button Link"
+    },
+    {
+      "type": "header",
+      "content": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "select",
+      "id": "image_position",
+      "label": "Image Position",
+      "options": [
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "top",
+          "label": "Top"
+        },
+        {
+          "value": "bottom",
+          "label": "Bottom"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "Layout",
+      "options": [
+        {
+          "value": "image_left",
+          "label": "Image Left"
+        },
+        {
+          "value": "image_right",
+          "label": "Image Right"
+        }
+      ],
+      "default": "image_right"
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "Full Width",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "margin_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Margin Top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Margin Bottom",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "PrepFlora Hero"
+    }
+  ]
+}
+{% endschema %}

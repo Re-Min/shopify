@@ -1,0 +1,135 @@
+/* ============================================
+   PrepFlora Hero Section Styles
+   ============================================ */
+
+.prepflora-hero {
+  background-color: var(--color-cream-canvas);
+  overflow: hidden;
+}
+
+.prepflora-hero--full-width .prepflora-hero__wrapper {
+  max-width: 100%;
+}
+
+.prepflora-hero__wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3xl);
+  align-items: center;
+  min-height: 500px;
+}
+
+/* Hero Content */
+.hero__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  max-width: 600px;
+}
+
+.hero__heading {
+  color: var(--color-navy-deep);
+  margin: 0;
+}
+
+.hero__subheading {
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.hero__buttons {
+  display: flex;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+  margin-top: var(--space-md);
+}
+
+/* Hero Image */
+.hero__image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+}
+
+.hero__image-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-navy-lightest);
+  border-radius: var(--radius-md);
+}
+
+.hero__image-placeholder svg {
+  width: 100%;
+  height: 100%;
+  opacity: 0.3;
+}
+
+/* Tablet */
+@media screen and (max-width: 1024px) {
+  .prepflora-hero__wrapper {
+    gap: var(--space-2xl);
+    min-height: 400px;
+  }
+
+  .hero__content {
+    max-width: 500px;
+  }
+
+  .hero__image-wrapper {
+    min-height: 350px;
+  }
+}
+
+/* Mobile */
+@media screen and (max-width: 768px) {
+  .prepflora-hero__wrapper {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+    min-height: auto;
+  }
+
+  .hero__content {
+    max-width: 100%;
+    text-align: center;
+    align-items: center;
+  }
+
+  .hero__buttons {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .hero__buttons .btn {
+    flex: 1;
+    min-width: 140px;
+  }
+
+  .hero__image-wrapper {
+    min-height: 300px;
+    order: -1; /* Image appears first on mobile */
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .hero__buttons {
+    flex-direction: column;
+  }
+
+  .hero__buttons .btn {
+    width: 100%;
+  }
+}

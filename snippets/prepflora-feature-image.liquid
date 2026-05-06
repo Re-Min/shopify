@@ -1,0 +1,28 @@
+{% comment %}
+  PrepFlora Feature Band Image Snippet
+  Renders the image for feature band
+{% endcomment %}
+
+<div class="feature-band__image-wrapper">
+  {%- if section.settings.image != blank -%}
+    <img
+      srcset="
+        {%- if section.settings.image.width >= 375 -%}{{ section.settings.image | image_url: width: 375 }} 375w,{%- endif -%}
+        {%- if section.settings.image.width >= 750 -%}{{ section.settings.image | image_url: width: 750 }} 750w,{%- endif -%}
+        {%- if section.settings.image.width >= 1100 -%}{{ section.settings.image | image_url: width: 1100 }} 1100w,{%- endif -%}
+        {{ section.settings.image | image_url }} {{ section.settings.image.width }}w
+      "
+      src="{{ section.settings.image | image_url: width: 1100 }}"
+      loading="lazy"
+      alt="{{ section.settings.image.alt | escape }}"
+      width="{{ section.settings.image.width }}"
+      height="{{ section.settings.image.height }}"
+      class="feature-band__image"
+      style="object-position: {{ section.settings.image_position }};"
+    >
+  {%- else -%}
+    <div class="feature-band__image-placeholder">
+      {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
+    </div>
+  {%- endif -%}
+</div>
