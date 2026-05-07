@@ -119,6 +119,8 @@
   "order": [
     "prepflora_hero",
     "featured_collection",
-    "prepflora_feature_band"
+    "prepflora_feature_band",
+    "image_banner_old",
+    "rich_text"
   ]
 }
